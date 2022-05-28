@@ -1,61 +1,131 @@
+<!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dev2gether - Index</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
-<head th:replace="layouts:: head"></head>
+    <!--    <link rel="stylesheet" th:href="@{css/formatting.css}"/>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
 
-<body>
+    <style>
+        .dark-heading{
+            color: rgba(0, 0, 0, 0.8);
+        }
+        .courier{
+            font-family: 'Courier New', Courier, monospace;
+            color: rgba(0, 0, 0, 0.7);
+        }
+        hr {
+            margin: 1rem 0;
+            color: purple;
+            background-color: purple;
+            border: 0;
+            opacity: 1;
+            height: 20px;
+        }
+        #indexImg {
+            border-radius: 200px;
+            border: 10px solid black;
+            background-color: black;
+        }
+        #bottomHalf {
+            background-color: rgba(0, 0, 0, 0.5);;
+        }
+    </style>
+
+</head>
 
 
+<body  th:style="'background: url(/images/blueline.png); height: 100%; background-position: center; background-repeat: no-repeat; background-size: cover;'">
+
+<header th:replace="layouts:: header"></header>
 <nav th:replace="layouts:: nav"></nav>
 
-
-
+<!--MAIN BULK-->
 <div class="container">
-    <div class="row">
-    <div class="projects col-md-6">
-        <h4> Projects </h4>
-        <table th:replace="layouts:: projectTable"></table>
-    </div>
-<!--    <div class="Students col-md-4">-->
-<!--         <h4> Student Members</h4>-->
-<!--         <table th:replace="layouts:: studentTable"></table>-->
-<!--    </div>-->
-<!--        <div class="col-md-2">-->
+    <div class="col-12 container ms-5 me-5 justify-content-center row">
+        <div class="col-12 col-md-6">
+            <h2 class="courier p-2 ms-3">Write Code</h2>
+            <h2 class="courier p-2 ms-3">Make Connections</h2>
+            <h2 class="courier p-2 ms-3">Share Knowledge</h2>
+            <h1 class="display-2 text-info fw-bolder ms-3">Develop Together</h1>
 
-<!--        </div>-->
+            <form method="get" action="signup.html" class="row  mt-5">
+                <div class="pb-3 col-8">
+                    <input type="email" class="form-control" id="SignUpSmall" placeholder="Enter your email to sign up">
+                </div>
+                <div class="pb-3 col-4">
+                    <button type="submit" class="btn btn-success col-8">Sign Up</button>
+                </div>
 
-
-        <div class="col-md-3">
-            <canvas id="myChart" height="50" width="50"></canvas>
-            <script>
-                var chartData = "[[${projectStatusCount_CHART_DATA}]]";
-
-            </script>
+            </form>
+        </div>
+        <div class="col-6 ps-3 justify-content-center d-none d-md-block">
+            <img th:src="@{images/index1.png}" id="indexImg" class="mt-3 ms-5" alt="code" width="600" height="350">
         </div>
     </div>
+</div>
 
-    <div class="row">
-        <hr>
-        <div class="col-md-6">
-            <h4> Student Project Counts</h4>
-        <table th:replace="layouts:: studentProjectTable"></table>
+<div id="bottomHalf" class="">
+    <hr class="">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="row col-12 text-center m-2 col-md-4">
+                <!-- <h3 class="text-decoration-underline text-white">Cards</h3> -->
+                <div class="bg-light text-center">
+                    <h5 class="pt-2 pb-2 text-primary">What do others think<br> of Dev2gether.com</h5>
+                    <div class="row col-12">
+                        <div class="row col-4 ms-3">
+                            <img th:src="@{images/girl.png}" class="rounded-circle" alt="code" width="25" height="75">
+                        </div>
+                        <div class="row col-8">
+                            <h6 class="text-danger fw-bold">Ashley Jackson</h6>
+                            <p>This helped me get a job at google. Thank you Dev2gether</p>
+                        </div>
+                    </div>
+                    <div class="row col-12">
+                        <div class="row col-4 ms-3">
+                            <img th:src="@{images/boy.png}" class="rounded-circle" alt="code" width="25" height="75">
+                        </div>
+                        <div class="row col-8">
+                            <h6 class="text-danger fw-bold">Michael James</h6>
+                            <p>Dev2gether.com made me a better programmer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row col-12 text-center m-2 col-md-4">
+                <div class="bg-light text-center">
+                    <h5 class="pt-2 pb-2 text-primary">Current Projects</h5>
+                    <div class="container m-2 border-opacity-25">
+                        <table th:replace="layouts:: projectTable"></table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row col-12 text-center m-2 col-md-4">
+                <div class="bg-light text-center">
+                    <h5 class="pt-2 pb-2 text-primary">Project Status Chart</h5>
+                    <canvas id="myChart" height="50" width="50"></canvas>
+                    <script>
+                        var chartData = "[[${projectStatusCount_CHART_DATA}]]";
+                    </script>
+                </div>
+            </div>
+
         </div>
-
-
-
-
-<!--    <div class="col-md-6">-->
-<!--        <h4> Project StageCounts</h4>-->
-<!--    <table th:replace="layouts:: projectStatusCount"></table>-->
-
-<!--    </div>-->
+    </div>
+    <!--JAVASCRIPT-->
+    <script type="text/javascript" th:src="@{js/pieChart.js}"></script>
+    <!--JAVASCRIPT-->
 </div>
+<!--MAIN BULK-->
 
 
 
-
-<script type="text/javascript" th:src="@{js/pieChart.js}"></script>
-
-</div>
 
 </body>
 </html>

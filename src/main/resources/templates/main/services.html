@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dev2gether - Services</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <style>
+        .dark-heading{
+            color: rgba(0, 0, 0, 0.8);
+        }
+        .courier{
+            font-family: 'Courier New', Courier, monospace;
+            color: rgba(0, 0, 0, 0.7);
+        }
+        hr {
+            margin: 1rem 0;
+            color: purple;
+            background-color: purple;
+            border: 0;
+            opacity: 1;
+            height: 20px;
+        }
+        #indexImg {
+            border-radius: 200px;
+            border: 10px solid black;
+            background-color: black;
+        }
+        #bottomHalf {
+            background-color: rgba(0, 0, 0, 0.5);;
+        }
+
+
+    </style>
+
+</head>
+<body  th:style="'background: url(/images/blueline.png); height: 100%; background-position: center; background-repeat: no-repeat; background-size: cover;'">
+
+<header th:replace="layouts:: header"></header>
+<nav th:replace="layouts:: nav"></nav>
+
+    <div class="container p-3 pt-5 row">
+        <div class="col-12 col-md-6 ps-3 row justify-content-center align-items-center">
+            <h1 class="display-1 text-dark fw-bolder ms-3 text-center">We help you code better</h1>
+        </div>
+
+        <div class="col-12 col-md-6 row">
+            <h1 class="display-3 text-info fw-bolder justify-content-center text-center">Dev2gether.com</h1>
+            <h2 class="courier p-2 ms-3">is an application that creates connections, organizes projects and promotes collaboration.</h2>
+            <h2 class="courier p-2 ms-3">Designed as a final project for the Programming 3 class taught by professor Reza Shalchian. We think it made us better coders</h2>
+        </div>
+    </div>
+
+    <div class="col-12 row">
+        <h1 class="display-3 text-dark fw-bolder ms-3 text-center">Sign up today to start devloping today.</h1>
+
+        <form method="get" action="signup.html" class="row mt-5 justify-content-center">
+            <div class="pb-3 col-4">
+                <input type="email" class="form-control" id="SignUpSmall" placeholder="email">
+            </div>
+            <div class="pb-3 col-4">
+                <button type="submit" class="btn btn-success col-8">Sign Up</button>
+            </div>
+        </form>
+    </div>
+
+
+    <div id="bottomHalf" class="pb-5">
+        <hr class="">
+
+    </div>
+
+</body>
+</html>

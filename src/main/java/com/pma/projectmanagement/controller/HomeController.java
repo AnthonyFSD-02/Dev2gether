@@ -68,4 +68,17 @@ public class HomeController {
 
        return "main/home";
     }
+
+    @GetMapping("/services")
+    public String displayServices(Model model){
+
+        return "main/services";
+
+    }
+    @GetMapping("/about")
+    public String displayAbout(Model model){
+
+        return "main/about";
+
+    }
 }

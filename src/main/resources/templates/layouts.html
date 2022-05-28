@@ -14,34 +14,69 @@
     <title th:text="${versionNumber}"></title>
 </head>
 
-    <nav th:fragment = "nav"
-         class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="/">HOME LOGO</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/students">Students</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/projects">Projects</a>
-                </li>
-            </ul>
-            <span class="navbar-text">
-
-          Navbar text with an inline element
-        </span>
+<!-- HEADER -->
+    <header  th:fragment = "header"
+             class="py-3 border-bottom bg-dark">
+        <div class="container d-flex flex-wrap justify-content-center">
+            <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
+                <svg class="bi me-2" width="40" height="32"><use xlink:href="/"></use></svg>
+                <span class="fs-4 text-center fw-bolder text-white">Dev2gether.com</span>
+            </a>
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0" role="search">
+                <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+            </form>
         </div>
+    </header>
+<!-- HEADER -->
+
+<!-- NAV -->
+    <nav th:fragment = "nav"
+         class="py-2 bg-light border-bottom">
+<!--         class="navbar navbar-expand-lg navbar-dark bg-dark">-->
+
+
+            <div class="container d-flex flex-wrap">
+                <ul class="nav me-auto">
+                    <li class="nav-item"><a href="/" class="nav-link link-dark px-2 active text-primary" aria-current="page">Home</a></li>
+                    <li><a href="about" class="nav-link px-2 text-info">About</a></li>
+                    <li><a href="services" class="nav-link px-2 text-info">Services</a></li>
+                    <li><a href="projects" class="nav-link px-2 text-info">Projects</a></li>
+                    <li><a href="services" class="nav-link px-2 text-danger">How Dev2gether Works</a></li>
+                </ul>
+                <ul class="nav">
+                    <li class="nav-item"><a href="/login" class="nav-link link-dark px-2">Login</a></li>
+                    <li class="nav-item"><a href="/register" class="nav-link link-dark px-2">Sign up</a></li>
+                </ul>
+            </div>
+
+
+<!--        <a class="navbar-brand" href="/">HOME LOGO</a>-->
+<!--        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--            <span class="navbar-toggler-icon"></span>-->
+<!--        </button>-->
+<!--        <div class="collapse navbar-collapse" id="navbarText">-->
+<!--            <ul class="navbar-nav mr-auto">-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="/students">Students</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="/projects">Projects</a>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--            <span class="navbar-text">-->
+
+<!--          Navbar text with an inline element-->
+<!--        </span>-->
+<!--        </div>-->
     </nav>
+        <!-- NAV -->
 
 
-<table th:fragment = "studentTable" class="table table-bordered table-striped">
-    <thead class="thead-dark">
+<table th:fragment = "studentTable" class="table table-striped bg-white">
+    <thead>
     <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
     </tr>
     </thead>
     <tbody>
